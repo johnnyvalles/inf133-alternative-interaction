@@ -7,12 +7,13 @@ import { ResourceData } from '../../data/resource-data';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-	@Input() carouselId:string;
+	@Input() carouselId:string; // WTF we do with this shit??????/
 	@Input() resources:ResourceData[];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    console.log("carouselId: " + this.carouselId);
   }
 
 }
