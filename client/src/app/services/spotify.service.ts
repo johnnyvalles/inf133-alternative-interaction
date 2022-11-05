@@ -47,42 +47,27 @@ export class SpotifyService {
     //JavaScript's "map" function might be useful for this, but there are other ways of building the array.
     category = encodeURIComponent(category);
     resource = encodeURIComponent(resource);
-    console.log(`SEARCH FOR: ${category} && ${resource}`);
     let endpoint = `/search/${category}/${resource}`;
     return this.sendRequestToExpress(endpoint).then((data) => {
+      console.log(data);
       if (category === "artist") {
-        console.log("SPOTIFY ARTIST DATA: ");
-        console.dir(data);
         let artistData: ArtistData[] = data.artists.items.map((artist) => {
           return new ArtistData(artist);
         });
-
-        console.log("PARSED ARTISTS DATA");
-        console.dir(artistData);
         return artistData;
       }
 
       if (category === "album") {
-        console.log("SPOTIFY ALBUMS DATA: ");
-        console.dir(data);
         let albumData: AlbumData[] = data.albums.items.map((album) => {
           return new AlbumData(album);
         });
-
-        console.log("PARSED ALBUM DATA");
-        console.dir(albumData);
         return albumData;
       }
 
       if (category === "track") {
-        console.log("SPOTIFY TRACKS DATA: ");
-        console.dir(data);
         let trackData: TrackData[] = data.tracks.items.map((track) => {
           return new TrackData(track);
         });
-
-        console.log("PARSED TRACKS DATA");
-        console.dir(trackData);
         return trackData;
       }
 

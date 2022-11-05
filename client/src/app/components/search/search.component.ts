@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { SpotifyService } from '../../services/spotify.service';
 import { ArtistData } from '../../data/artist-data';
 import { AlbumData } from '../../data/album-data';
@@ -27,5 +27,9 @@ export class SearchComponent implements OnInit {
     .then((resources: ResourceData[]) => {
       this.resources = resources;
     });
+  }
+
+  onSelectChange() {
+    this.resources = null;
   }
 }
