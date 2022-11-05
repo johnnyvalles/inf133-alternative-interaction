@@ -28,13 +28,11 @@ export class TrackPageComponent implements OnInit {
     this.spotifyService.getTrack(this.trackId)
     .then((track: TrackData) => {
       this.track = track;
-      console.dir(this.track);
     });
 
     this.spotifyService.getAudioFeaturesForTrack(this.trackId)
     .then((audioFeatures: TrackFeature[]) => {
       this.audioFeatures = audioFeatures.filter(feature => TrackFeature.FeatureTypes.includes(feature.name));
-      console.dir(this.audioFeatures);
     });
   }
 }

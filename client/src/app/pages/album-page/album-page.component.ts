@@ -28,13 +28,11 @@ export class AlbumPageComponent implements OnInit {
     this.spotifyService.getAlbum(this.albumId)
     .then((album: AlbumData) => {
       this.album = album;
-      console.log(this.album);
     });
 
     this.spotifyService.getTracksForAlbum(this.albumId)
     .then((tracks: TrackData[]) => {
       this.tracks = tracks;
-      console.dir(tracks);
     });
   }
 }

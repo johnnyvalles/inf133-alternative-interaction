@@ -19,9 +19,6 @@ export class AboutComponent implements OnInit {
       this.name = profileData.name;
       this.profile_pic = profileData.imageURL;
       this.profile_link = profileData.spotifyProfile;
-      console.log(this);
-    }).catch(error => {
-      console.log(`ERROR: ${error.message}`);
     });
   }
 

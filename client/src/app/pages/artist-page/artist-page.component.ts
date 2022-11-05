@@ -37,7 +37,6 @@ export class ArtistPageComponent implements OnInit {
       .getArtist(this.artistId)
       .then((artistData: ArtistData) => {
         this.artist = artistData;
-        console.dir(this.artist);
       });
 
     // getRelatedArtists(artistId:string):Promise<ArtistData[]>
@@ -45,7 +44,6 @@ export class ArtistPageComponent implements OnInit {
       .getRelatedArtists(this.artistId)
       .then((relatedArtists: ArtistData[]) => {
         this.relatedArtists = relatedArtists;
-        console.dir(relatedArtists);
       });
 
     // getTopTracksForArtist(artistId:string):Promise<TrackData[]>
@@ -53,7 +51,6 @@ export class ArtistPageComponent implements OnInit {
       .getTopTracksForArtist(this.artistId)
       .then((topTracks: TrackData[]) => {
         this.topTracks = topTracks;
-        console.dir(topTracks);
       });
 
     // getAlbumsForArtist(artistId:string):Promise<AlbumData[]>
@@ -61,7 +58,6 @@ export class ArtistPageComponent implements OnInit {
       .getAlbumsForArtist(this.artistId)
       .then((albumData: AlbumData[]) => {
         this.albums = albumData;
-        console.dir(albumData);
       });
   }
 }

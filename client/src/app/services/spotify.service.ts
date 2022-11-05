@@ -24,18 +24,13 @@ export class SpotifyService {
     //yet talked about Observables. https://indepth.dev/posts/1287/rxjs-heads-up-topromise-is-being-deprecated
     // return this.http.get(this.expressBaseUrl + endpoint).toPromise();
     let url = this.expressBaseUrl + endpoint;
-    console.log(`2EXPRESS: ${url}`);
     return this.http.get<any>(url).toPromise();
   }
 
   aboutMe(): Promise<ProfileData> {
     //This line is sending a request to express, which returns a promise with some data. We're then parsing the data
-    console.log("CLIENT: making request to aboutMe");
     return this.sendRequestToExpress("/me").then((data) => {
-      console.log("SPOTIFY PROFILE DATA: ");
-      console.dir(data);
       let profileData: ProfileData = new ProfileData(data);
-      console.log(profileData);
       return profileData;
     });
   }
@@ -49,7 +44,6 @@ export class SpotifyService {
     resource = encodeURIComponent(resource);
     let endpoint = `/search/${category}/${resource}`;
     return this.sendRequestToExpress(endpoint).then((data) => {
-      console.log(data);
       if (category === "artist") {
         let artistData: ArtistData[] = data.artists.items.map((artist) => {
           return new ArtistData(artist);
@@ -85,7 +79,6 @@ export class SpotifyService {
         return new ArtistData(data);
       })
       .catch((error) => {
-        console.log(`ERROR: ${error.message}`);
         return null;
       });
   }
@@ -95,11 +88,9 @@ export class SpotifyService {
     let endpoint = `/artist-related-artists/${encodeURIComponent(artistId)}`;
     return this.sendRequestToExpress(endpoint)
     .then((data) => {
-      console.dir(data);
       return data.artists.map((datum) => { return new ArtistData(datum) });
     })
     .catch((error) => {
-      console.log(`ERROR: ${error.message}`);
       return null;
     });
   }
@@ -112,7 +103,6 @@ export class SpotifyService {
       return data.tracks.map((datum) => { return new TrackData(datum) });
     })
     .catch((error) => {
-      console.log(`ERROR: ${error.message}`);
       return null;
     });
   }
@@ -125,7 +115,6 @@ export class SpotifyService {
       return data.items.map((datum) => { return new AlbumData(datum) });
     })
     .catch((error) => {
-      console.log(`ERROR: ${error.message}`);
       return null;
     });
   }
@@ -135,11 +124,9 @@ export class SpotifyService {
     const endpoint = `/album/${encodeURIComponent(albumId)}`;
     return this.sendRequestToExpress(endpoint)
     .then((data) => {
-      console.log(data);
       return new AlbumData(data);
     })
     .catch((error) => {
-      console.log(`ERROR: ${error.message}`);
       return null;
     });
   }
@@ -154,7 +141,6 @@ export class SpotifyService {
       });
     })
     .catch((error) => {
-      console.log(`ERROR: ${error.message}`);
       return null;
     });
   }
@@ -167,7 +153,6 @@ export class SpotifyService {
       return new TrackData(data);
     })
     .catch((error) => {
-      console.log(`ERROR: ${error.message}`);
       return null;
     });
   }
@@ -184,7 +169,6 @@ export class SpotifyService {
       return trackFeatures;
     })
     .catch((error) => {
-      console.log(`ERROR: ${error.message}`);
       return null;
     });
   }
