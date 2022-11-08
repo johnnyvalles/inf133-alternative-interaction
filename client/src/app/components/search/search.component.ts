@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
   }
 
   search(): void {
+    this.resources = null;
     this.spotifyService.searchFor(this.searchCategory, this.searchString)
     .then((resources: ResourceData[]) => {
       this.resources = resources;
@@ -30,6 +31,6 @@ export class SearchComponent implements OnInit {
   }
 
   onSelectChange() {
-    this.resources = null;
+    this.search();
   }
 }
