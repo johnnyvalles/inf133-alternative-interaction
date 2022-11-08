@@ -26,10 +26,7 @@
 		<!--TODO: loop over types of features and create a thermometer component for each-->
 		<app-thermometer
 		*ngFor="let feature of audioFeatures"
-		[trackId]="trackId"
-		[name]="feature.name"
-		[percentage]="feature.percentageString"
-		[color]="feature.color"
+		[trackFeature]="feature"
 		></app-thermometer>
 	</div>
 </div>

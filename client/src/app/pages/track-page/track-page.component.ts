@@ -23,7 +23,6 @@ export class TrackPageComponent implements OnInit {
 
   ngOnInit() {
     this.trackId = this.route.snapshot.paramMap.get("id");
-    //TODO: Inject the spotifyService and use it to get the track data and it's audio features
 
     this.spotifyService.getTrack(this.trackId)
     .then((track: TrackData) => {
@@ -33,6 +32,9 @@ export class TrackPageComponent implements OnInit {
     this.spotifyService.getAudioFeaturesForTrack(this.trackId)
     .then((audioFeatures: TrackFeature[]) => {
       this.audioFeatures = audioFeatures.filter(feature => TrackFeature.FeatureTypes.includes(feature.name));
+      for (let feature of this.audioFeatures) {
+        feature.id = this.trackId;
+      }
     });
   }
 }
