@@ -23,14 +23,22 @@ export class SearchComponent implements OnInit {
   }
 
   search(): void {
-    this.resources = null;
-    this.spotifyService.searchFor(this.searchCategory, this.searchString)
-    .then((resources: ResourceData[]) => {
-      this.resources = resources;
-    });
+    if (this.searchString) {
+      this.resources = null;
+      this.spotifyService.searchFor(this.searchCategory, this.searchString)
+      .then((resources: ResourceData[]) => {
+        this.resources = resources;
+      });
+    }
   }
 
-  onSelectChange() {
+  onSelectChange(): void {
+    if (this.searchString) {
+      this.search();
+    }
+  }
+
+  handleEnterKey(): void {
     this.search();
   }
 }
