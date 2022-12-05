@@ -8,7 +8,7 @@ import { PredictionEvent } from '../../prediction-event';
   styleUrls: ['./handtracker.component.css']
 })
 export class HandtrackerComponent implements OnInit {
-  @Output() onPrediction = new EventEmitter<PredictionEvent>();
+  @Output() prediction = new EventEmitter<PredictionEvent>();
   @ViewChild('htvideo') video: ElementRef;
   
   /* 
@@ -124,7 +124,7 @@ export class HandtrackerComponent implements OnInit {
             if (openhands == 0 && closedhands == 0 && pointing == 0 && pinching == 0)
                 this.detectedGesture = "None";
 
-            this.onPrediction.emit(new PredictionEvent(this.detectedGesture))
+            this.prediction.emit(new PredictionEvent(this.detectedGesture))
         }, (err: any) => {
             console.log("ERROR")
             console.log(err)
