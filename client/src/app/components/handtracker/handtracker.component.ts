@@ -97,34 +97,28 @@ export class HandtrackerComponent implements OnInit {
                 
             }
 
-            console.log(`OPEN HANDS: ${openhands}`);
-            console.log(`CLOSED HANDS: ${closedhands}`);
-            console.log(`POINTING: ${pointing}`);
-            console.log(`PINCHING: ${pinching}`);
-
             // These are just a few options! What about one hand open and one hand closed!?
-            if (openhands > 1) this.detectedGesture = "Two Open Hands";
-            else if(openhands == 1) this.detectedGesture = "Open Hand";
+            if (openhands > 1) this.detectedGesture = "Two Open Hands ✋ ✋";
+            else if(openhands == 1) this.detectedGesture = "One Open Hand ✋";
             
-            if (closedhands > 1) this.detectedGesture = "Two Closed Hands";
-            else if(closedhands == 1) this.detectedGesture = "Closed Hand";
+            if (closedhands > 1) this.detectedGesture = "Two Closed Hands ✊ ✊";
+            else if(closedhands == 1) this.detectedGesture = "One Closed Hand ✊";
             
-            if (pointing > 1) this.detectedGesture = "Two Hands Pointing";
-            else if(pointing == 1) this.detectedGesture = "Hand Pointing";
+            if (pointing > 1) this.detectedGesture = "Two Pointing Hands 👆 👆";
+            else if(pointing == 1) this.detectedGesture = "One Pointing Hand 👆";
             
-            if (pinching > 1) this.detectedGesture = "Two Hands Pinching";
-            else if(pinching == 1) this.detectedGesture = "Hand Pinching";
+            if (pinching > 1) this.detectedGesture = "Two Pinching Hands 👌 👌";
+            else if(pinching == 1) this.detectedGesture = "One Pinching Hand 👌";
 
             // custom gesture 1 (1 open, 1 closed)
             if (openhands == 1 && closedhands == 1 && pinching == 0 && pointing == 0) {
               console.warn("CUSTOM 1");
-              this.detectedGesture = "One Hand Open & One Hand Closed"
+              this.detectedGesture = "One Hand Open & One Hand Closed ✋ ✊"
             }
 
             // custom gesture 2 (1 pointing, 1 closed)
             if (pointing == 1 && closedhands == 1 && pinching == 0 && openhands == 0) {
-              console.warn("CUSTOM 2");
-              this.detectedGesture = "One Hand Pointing & One Hand Closed"
+              this.detectedGesture = "One Hand Pointing & One Hand Closed 👆 ✊"
             }
 
             if (openhands == 0 && closedhands == 0 && pointing == 0 && pinching == 0)

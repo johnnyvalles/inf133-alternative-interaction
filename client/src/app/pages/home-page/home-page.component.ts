@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PredictionEvent } from "../../prediction-event"
+
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +12,10 @@ export class HomePageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onPrediction() {
+    
   }
 
 }

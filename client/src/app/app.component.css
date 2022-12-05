@@ -1,9 +1,24 @@
-nav {
-	margin-bottom: 20px;
+
+main {
+	background-color: #333333;
 }
 
-main .container {
+/* main .container {
 	background: #181818;
 	padding: 1em;
 	border-radius: 15px;
+} */
+
+nav {
+	background-color: #191414;
+}
+
+nav ul:first-child a {
+	color: #1DB954 !important;
+	font-size: 2em;
+}
+
+nav ul:nth-child(2) a {
+	background-color: #1DB954 !important;
+	color: white;
 }

@@ -1,3 +1,10 @@
 img {
 	max-width: 400px;
 }
+
+div {
+	background-color: #181818;
+	padding: 2em;
+	border-radius: 15px;
+	margin: 1em 0;
+}
