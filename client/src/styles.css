@@ -2,7 +2,7 @@
 
 body {
 	/* background-color: var(--bs-gray-dark); */
-	background-color: #000;
+	background-color: #333;
 	color: var(--bs-light);
 	font-family: 'Lato', sans-serif;
 }
