@@ -1,7 +1,7 @@
-<div>
+<div class="row">
   <h1>Search Spotify</h1>
   <!--DONE: bind input's model to searchString-->
-  <input [(ngModel)]="searchString" (keydown.enter)="handleEnterKey()" />
+  <input [(ngModel)]="searchString" (keydown.enter)="handleEnterKey()" placeholder="Search query" id="search-query"/>
   <!--DONE: bind select's model to searchCategory-->
   <select [(ngModel)]="searchCategory" (change)="onSelectChange()">
     <!--DONE: loop over searchCategories to create dropdown options-->
@@ -17,8 +17,10 @@
   <div class="d-flex justify-content-center">
     <app-carousel
       *ngIf="searchCategory !== 'track'"
+      [resourceType]="searchCategory"
       [resources]="resources"
       [carouselId]="'carousel-' + searchCategory + '-data'"
+      [gesture]="gesture"
     ></app-carousel>
   </div>
 
