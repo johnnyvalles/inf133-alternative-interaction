@@ -33,7 +33,7 @@ export class AboutComponent implements OnInit {
     }
 
     if (this.gesture.includes("Two Pointing Hands")) {
-      console.warn(this.profileLink.nativeElement.click());
+      this.profileLink.nativeElement.click();
     }
   }
 }
