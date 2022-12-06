@@ -1,12 +1,16 @@
 <!--TODO: Define click callback to load about me information-->
-<div>
+<div class="row">
   <p>Gesture: {{ gesture }}</p>
-  <button class="btn btn-primary" (click)="getAboutMeInfo()">
-    Load info about me
-  </button>
-  <a #profileLink class="btn btn-success" target="_blank" href="{{ profile_link }}"
-    >Open profile on Spotify</a
-  >
-  <h1>You're browsing Spotify as: {{ name }}</h1>
-  <img [src]="profile_pic" />
+  <h1>Spotify Profile</h1>
+  
+  <p *ngIf="name">You're browsing Spotify as <strong>{{ name }}</strong>.</p>
+
+  <div class="text-center">
+    <img class="rounded" *ngIf="name" [src]="profile_pic" />
+  </div>
+    <button *ngIf="!name" class="btn btn-primary" (click)="getAboutMeInfo()">
+      Load Your Profile
+    </button>
+    <a *ngIf="name" #profileLink class="btn btn-success" target="_blank" href="{{ profile_link }}"
+    >View Profile on Spotify</a>
 </div>
