@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
 import { PredictionEvent } from "../../prediction-event"
 
 
@@ -10,7 +10,7 @@ import { PredictionEvent } from "../../prediction-event"
 export class HomePageComponent implements OnInit {
 
   gesture: string = "";
-
+  @ViewChild("handTracker") handTracker;
   constructor() { }
 
   ngOnInit() {
@@ -18,5 +18,9 @@ export class HomePageComponent implements OnInit {
 
   onPrediction(event: PredictionEvent) {
     this.gesture = event.getPrediction();
+  }
+
+  ngOnDestroy() {
+    this.handTracker.stopDetection();
   }
 }
