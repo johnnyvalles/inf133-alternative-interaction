@@ -1,10 +1,17 @@
+<div class="container">
+	<app-handtracker
+	  #handTracker
+	  (prediction)="onPrediction($event)"
+	></app-handtracker>
+  </div>
+
 <div class="row">
 	<div *ngIf="track" class="col col-12 col-lg-6">
 		<!--DONE: populate with track name-->
 		<h1>{{track.name}}</h1>
 		<p>
 			<!--DONE: link to album page, display album name-->
-			Track on <a routerLink="/album/{{track.album.id}}">{{track.album.name}}</a>
+			Track on <a routerLink="/album/{{track.album.id}}" id="album-link">{{track.album.name}}</a>
 		</p>
 		<div>
 			<!--DONE: loop over track's artists-->
@@ -19,7 +26,7 @@
 		</p>
 		<p>
 			<!--DONE: link to track page on spotify, display track name-->
-			<a class="btn btn-light" role="button" target="_blank" href="{{track.url}}">Open {{track.name}} on Spotify</a>
+			<a class="btn btn-success" role="button" target="_blank" href="{{track.url}}" id="view-track-spotify">Open {{track.name}} on Spotify</a>
 		</p>
 	</div>
 	<div *ngIf="audioFeatures" class="col col-12 col-lg-6">

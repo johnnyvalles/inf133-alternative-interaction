@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit, OnDestroy, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ArtistData } from "../../data/artist-data";
 import { TrackData } from "../../data/track-data";
 import { AlbumData } from "../../data/album-data";
 import { TrackFeature } from "../../data/track-feature";
 import { SpotifyService } from "src/app/services/spotify.service";
+import { PredictionEvent } from "src/app/prediction-event";
 
 @Component({
   selector: "app-track-page",
@@ -15,6 +16,9 @@ export class TrackPageComponent implements OnInit {
   trackId: string;
   track: TrackData;
   audioFeatures: TrackFeature[];
+
+  @ViewChild("handTracker") handTracker;
+  gesture:string = "None";
 
   constructor(
     private route: ActivatedRoute,
@@ -36,5 +40,25 @@ export class TrackPageComponent implements OnInit {
         feature.id = this.trackId;
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.handTracker.stopDetection();
+  }
+
+  onPrediction(event: PredictionEvent) {
+    this.gesture = event.getPrediction();
+
+    if (this.gesture.includes("One Hand Pointing & One Hand Closed")) {
+      document.getElementById("home-link").click();
+    }
+
+    if (this.gesture.includes("One Pointing Hand")) {
+      document.getElementById("album-link").click();
+    }
+
+    if (this.gesture.includes("Two Pointing Hands")) {
+      document.getElementById("view-track-spotify").click();
+    }
   }
 }
