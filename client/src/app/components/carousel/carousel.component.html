@@ -9,13 +9,14 @@
       class="carousel-item"
       [ngClass]="{'active': first}"
       [resource]="resource"
+      id="active-carousel-card"
       ></app-carousel-card>
   </div>
-  <a class="carousel-control-prev" href="#{{carouselId}}" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#{{carouselId}}" role="button" data-slide="prev" #carouselPrevious id="carouselPrevious">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#{{carouselId}}" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#{{carouselId}}" role="button" data-slide="next" #carouselNext id="carouselNext">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </a>
