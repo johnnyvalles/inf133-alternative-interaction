@@ -7,7 +7,7 @@
   <div class="text-center">
     <img class="rounded" *ngIf="name" [src]="profile_pic" />
   </div>
-    <button *ngIf="!name" class="btn btn-primary" (click)="getAboutMeInfo()">
+    <button *ngIf="!name" class="btn btn-success" (click)="getAboutMeInfo()">
       Load Your Profile
     </button>
     <a *ngIf="name" #profileLink class="btn btn-success" target="_blank" href="{{ profile_link }}"
