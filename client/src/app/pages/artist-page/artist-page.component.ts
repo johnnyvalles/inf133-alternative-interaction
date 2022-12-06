@@ -72,6 +72,10 @@ export class ArtistPageComponent implements OnInit {
 
   onPrediction(event: PredictionEvent) {
     this.gesture = event.getPrediction();
+    
+    if (this.gesture.includes("One Hand Pointing & One Hand Closed")) {
+      document.getElementById("home-link").click();
+    }
 
     if (this.gesture.includes("One Pointing Hand")) {
       document.getElementById("view-artist-spotify").click();
