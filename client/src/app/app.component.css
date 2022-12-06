@@ -18,7 +18,7 @@ nav ul:first-child a {
 	font-size: 2em;
 }
 
-nav ul:nth-child(2) a {
+/* nav ul:nth-child(2) a {
 	background-color: #1DB954 !important;
 	color: white;
-}
+} */
