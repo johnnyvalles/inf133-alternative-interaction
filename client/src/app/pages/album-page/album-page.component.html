@@ -1,6 +1,7 @@
 <div class="container">
   <app-handtracker
     #handTracker
+	(prediction)="onPrediction($event)"
   ></app-handtracker>
 </div>
 
@@ -12,7 +13,7 @@
     		<img id="albumImg" src="{{ album.imageURL }}" />
 			<p *ngFor="let artist of album.artists">
 				<!--DONE: link to artist page, display artist name-->
-				Artist: <a routerLink="/artist/{{ artist.id }}">{{ artist.name }}</a>
+				Artist: <a routerLink="/artist/{{ artist.id }}" id="artist-page-link">{{ artist.name }}</a>
 			</p>
 			<p>
 				<!--DONE: link to album page on spotify, display album name-->
@@ -21,6 +22,7 @@
 				  role="button"
 				  target="_blank"
 				  href="{{ album.url }}"
+				  id="view-album-spotify"
 				  >Open {{ album.name }} on Spotify</a
 				>
 			  </p>

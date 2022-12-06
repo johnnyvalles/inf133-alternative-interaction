@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ArtistData } from "../../data/artist-data";
 import { TrackData } from "../../data/track-data";
 import { AlbumData } from "../../data/album-data";
 import { SpotifyService } from "src/app/services/spotify.service";
+import { PredictionEvent } from "src/app/prediction-event";
 
 @Component({
   selector: "app-album-page",
@@ -14,6 +15,9 @@ export class AlbumPageComponent implements OnInit {
   albumId: string;
   album: AlbumData;
   tracks: TrackData[];
+
+  @ViewChild("handTracker") handTracker;
+  gesture:string = "None";
 
   constructor(
     private route: ActivatedRoute,
@@ -34,5 +38,25 @@ export class AlbumPageComponent implements OnInit {
     .then((tracks: TrackData[]) => {
       this.tracks = tracks;
     });
+  }
+
+  ngOnDestroy() {
+    this.handTracker.stopDetection();
+  }
+
+  onPrediction(event: PredictionEvent) {
+    this.gesture = event.getPrediction();
+
+    if (this.gesture.includes("One Hand Pointing & One Hand Closed")) {
+      document.getElementById("home-link").click();
+    }
+
+    if (this.gesture.includes("One Pointing Hand")) {
+      document.getElementById("artist-page-link").click();
+    }
+
+    if (this.gesture.includes("Two Pointing Hands")) {
+      document.getElementById("view-album-spotify").click();
+    }
   }
 }
