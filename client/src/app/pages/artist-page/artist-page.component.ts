@@ -1,9 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy, ViewChild} from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { ArtistData } from "../../data/artist-data";
 import { TrackData } from "../../data/track-data";
 import { AlbumData } from "../../data/album-data";
 import { SpotifyService } from "src/app/services/spotify.service";
+import { PredictionEvent } from "../../prediction-event"
 
 @Component({
   selector: "app-artist-page",
@@ -16,6 +17,10 @@ export class ArtistPageComponent implements OnInit {
   relatedArtists: ArtistData[];
   topTracks: TrackData[];
   albums: AlbumData[];
+  gesture:string = "None";
+
+  @ViewChild("handTracker") handTracker;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -59,5 +64,38 @@ export class ArtistPageComponent implements OnInit {
       .then((albumData: AlbumData[]) => {
         this.albums = albumData;
       });
+  }
+
+  ngOnDestroy() {
+    this.handTracker.stopDetection();
+  }
+
+  onPrediction(event: PredictionEvent) {
+    this.gesture = event.getPrediction();
+
+    if (this.gesture.includes("One Pointing Hand")) {
+      document.getElementById("view-artist-spotify").click();
+    }
+
+    if (this.gesture.includes("One Open Hand")) {
+      let prev = document.querySelector("#artist-albums #carouselPrevious") as HTMLElement;
+      prev.click();
+    }
+
+    if (this.gesture.includes("Two Open Hands")) {
+      let next = document.querySelector("#artist-albums #carouselNext") as HTMLElement;
+      next.click();
+    }
+
+    if (this.gesture.includes("One Closed Hand")) {
+      let prev = document.querySelector("#similar-artists #carouselPrevious") as HTMLElement;
+      prev.click();
+    }
+
+    if (this.gesture.includes("Two Closed Hands")) {
+      let next = document.querySelector("#similar-artists #carouselNext") as HTMLElement;
+      next.click();
+    }
+
   }
 }

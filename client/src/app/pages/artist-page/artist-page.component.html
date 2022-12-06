@@ -1,3 +1,8 @@
+<div class="container">
+  <app-handtracker #handTracker (prediction)="onPrediction($event)"></app-handtracker>
+</div>
+
+
 <div *ngIf="artist">
   <div class="row" id="artist-card">
     <div class="col text-center">
@@ -9,6 +14,7 @@
 	  class="d-block btn btn-success"
 	  role="button"
 	  target="_blank"
+    id="view-artist-spotify"
 	  >View {{ artist.name }} on Spotify</a
 	>
     </div>
@@ -40,6 +46,7 @@
     <app-carousel
       [resources]="albums"
       [carouselId]="artist.id + '-artists-albums'"
+      id="artist-albums"
     ></app-carousel>
   </div>
   <div class="col col-12 col-lg-6 py-2">
@@ -48,6 +55,7 @@
     <app-carousel
       [resources]="relatedArtists"
       [carouselId]="artist.id + '-related-artists'"
+      id="similar-artists"
     ></app-carousel>
   </div>
 </div>
