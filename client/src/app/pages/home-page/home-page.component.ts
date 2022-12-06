@@ -9,13 +9,14 @@ import { PredictionEvent } from "../../prediction-event"
 })
 export class HomePageComponent implements OnInit {
 
+  gesture: string = "";
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  onPrediction() {
-    
+  onPrediction(event: PredictionEvent) {
+    this.gesture = event.getPrediction();
   }
-
 }

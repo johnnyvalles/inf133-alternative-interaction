@@ -1,8 +1,8 @@
 <div class="container">
-    <app-handtracker></app-handtracker>
+    <app-handtracker (prediction)="onPrediction($event)"></app-handtracker>
 </div>
 
 <div class="row">
-	<app-about class="col col-12 col-lg-6"></app-about>
+	<app-about [gesture]="gesture" class="col col-12 col-lg-6"></app-about>
 	<app-search class="col col-12 col-lg-6"></app-search>
 </div>

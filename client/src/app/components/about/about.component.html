@@ -1,9 +1,10 @@
 <!--TODO: Define click callback to load about me information-->
 <div>
+  <p>Gesture: {{ gesture }}</p>
   <button class="btn btn-primary" (click)="getAboutMeInfo()">
     Load info about me
   </button>
-  <a class="btn btn-success" target="_blank" href="{{ profile_link }}"
+  <a #profileLink class="btn btn-success" target="_blank" href="{{ profile_link }}"
     >Open profile on Spotify</a
   >
   <h1>You're browsing Spotify as: {{ name }}</h1>

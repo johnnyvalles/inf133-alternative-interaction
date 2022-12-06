@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges, ElementRef, ViewChild } from '@angular/core';
 import { SpotifyService } from "../../services/spotify.service";
 import { ProfileData } from "../../data/profile-data";
 
@@ -8,6 +8,8 @@ import { ProfileData } from "../../data/profile-data";
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  @Input() gesture = "None";
+  @ViewChild('profileLink') profileLink: ElementRef;
   name:string = null;
   profile_pic:string = "../../../assets/unknown.jpg";
   profile_link:string = null;
@@ -23,4 +25,15 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    
+    if (this.gesture.includes("One Pointing Hand")) {
+      this.getAboutMeInfo();
+    }
+
+    if (this.gesture.includes("Two Pointing Hands")) {
+      console.warn(this.profileLink.nativeElement.click());
+    }
+  }
 }
