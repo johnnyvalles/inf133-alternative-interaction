@@ -21,6 +21,7 @@
   </div>
   <div class="col col-12 col-lg-4">
     <h1>Supported Gestures</h1>
+<!-- 
     <ol>
       <li>✋ ✋ Two Open Hands</li>
       <li>✊ ✊ Two Closed Hands</li>
@@ -30,6 +31,15 @@
       <li>✋ One Open Hand</li>
       <li>✊ One Closed Hand</li>
       <li>👆 One Pointing Hand</li>
+    </ol>
+     -->
+
+     <ol *ngIf="support === 'home-page'">
+      <li><strong>👆 One Pointing Hand:</strong> loads your Spotify profile.</li>
+      <li><strong>👆 👆 Two Pointing Hands:</strong> opens your profile on Spotify.</li>
+      <li><strong>✋ One Open Hand:</strong> cycles through search query type.</li>
+      <li><strong>✋ ✋ Two Open Hands:</strong> clicks the search button.</li>
+      <li><strong>✋ ✊ One Hand Open & One Hand Closed:</strong> clicks currently active carousel card</li>
     </ol>
   </div>
   <div class="col col-12 col-lg-4">

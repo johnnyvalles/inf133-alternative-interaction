@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
 import * as handTrack from 'handtrackjs';
 import { PredictionEvent } from '../../prediction-event';
 
@@ -10,6 +10,7 @@ import { PredictionEvent } from '../../prediction-event';
 export class HandtrackerComponent implements OnInit {
   @Output() prediction = new EventEmitter<PredictionEvent>();
   @ViewChild('htvideo') video: ElementRef;
+  @Input() support = "";
   
   /* 
   SAMPLERATE determines the rate at which detection occurs (in milliseconds)
