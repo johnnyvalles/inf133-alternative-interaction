@@ -1,22 +1,25 @@
 <div class="container">
-  <app-handtracker #handTracker (prediction)="onPrediction($event)"></app-handtracker>
+  <app-handtracker
+    #handTracker
+    (prediction)="onPrediction($event)"
+    [support]="'artist-page'"
+  ></app-handtracker>
 </div>
-
 
 <div *ngIf="artist">
   <div class="row" id="artist-card">
     <div class="col text-center">
       <h1>{{ artist.name }}</h1>
-	  
+
       <img id="artistImg" src="{{ artist.imageURL }}" class="rounded" />
-	  <a
-	  href="{{ artist.url }}"
-	  class="d-block btn btn-success"
-	  role="button"
-	  target="_blank"
-    id="view-artist-spotify"
-	  >View {{ artist.name }} on Spotify</a
-	>
+      <a
+        href="{{ artist.url }}"
+        class="d-block btn btn-success"
+        role="button"
+        target="_blank"
+        id="view-artist-spotify"
+        >View {{ artist.name }} on Spotify</a
+      >
     </div>
   </div>
 

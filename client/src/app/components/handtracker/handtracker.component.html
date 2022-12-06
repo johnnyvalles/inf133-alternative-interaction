@@ -39,7 +39,16 @@
       <li><strong>👆 👆 Two Pointing Hands:</strong> opens your profile on Spotify.</li>
       <li><strong>✋ One Open Hand:</strong> cycles through search query type.</li>
       <li><strong>✋ ✋ Two Open Hands:</strong> clicks the search button.</li>
-      <li><strong>✋ ✊ One Hand Open & One Hand Closed:</strong> clicks currently active carousel card</li>
+      <li><strong>✋ ✊ One Hand Open & One Hand Closed:</strong> clicks currently active carousel card.</li>
+    </ol>
+
+    <ol *ngIf="support === 'artist-page'">
+      <li><strong>👆 ✊ One Hand Pointing & One Hand Closed:</strong> go to Home Page.</li>
+      <li><strong>👆 One Hand Pointing:</strong> view artist on Spotify.</li>
+      <li><strong>✋ One Open Hand:</strong> transition album carousel left.</li>
+      <li><strong>✋ ✋ Two Open Hands:</strong> transition album carousel right.</li>
+      <li><strong>✊ One Closed Hand:</strong> transition similar atists carousel left.</li>
+      <li><strong>✊ ✊ Two Closed Hands:</strong> transition similar atists carousel right.</li>
     </ol>
   </div>
   <div class="col col-12 col-lg-4">
