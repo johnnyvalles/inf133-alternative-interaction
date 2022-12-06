@@ -34,7 +34,6 @@ export class CarouselComponent implements OnInit {
       if (this.resources && this.gesture.includes("One Hand Open & One Hand Closed")) {
         let currentCard = document.querySelector("#active-carousel-card .carousel-card-link") as HTMLElement;
         if (currentCard) {
-          console.log(currentCard);
           currentCard.click();
         }
       }
@@ -49,8 +48,14 @@ export class CarouselComponent implements OnInit {
         console.warn("ARTIST: " + this.gesture);
         document.getElementById("carouselPrevious").click();
       }
-    }
 
+      if (this.resources && this.gesture.includes("One Hand Open & One Hand Closed")) {
+        let currentCard = document.querySelector("#active-carousel-card .carousel-card-link") as HTMLElement;
+        if (currentCard) {
+          currentCard.click();
+        }
+      }
+    }
   }
 
 }
