@@ -1,3 +1,6 @@
+DEMO PLAYLIST
+https://youtube.com/playlist?list=PLHZYcg_jTrbQL3pIvlVyykLOWr1DpxQhd
+
 --Readme document for Johnahton Valles, vallesja@uci.edu, 88843608--
 
 1. How many assignment points do you believe you completed (replace the *'s with your numbers)?
@@ -60,7 +63,3 @@ One pointing hand & one hand closed: this gesture is used to navigate back to th
 - Added descriptive text to all UI buttons.
 - List of supported gestures updates as user navigates pages.
 - Hand tracker is able to trigger clicks on the majority of interactive elements.
-
-
-DEMO PLAYLIST
-https://youtube.com/playlist?list=PLHZYcg_jTrbQL3pIvlVyykLOWr1DpxQhd
